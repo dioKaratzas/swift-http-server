@@ -121,12 +121,12 @@ struct NIOHTTPServerTests {
     @available(anyAppleOS 27.0, *)
     #if HTTP3
     @Test(
-        "Request context reports the negotiated HTTP version",
+        "Request context reports the HTTP version",
         arguments: [NIOHTTPServer.HTTPVersion.plaintextHTTP1_1, .http1_1, .http2, .http3]
     )
     #else
     @Test(
-        "Request context reports the negotiated HTTP version",
+        "Request context reports the HTTP version",
         arguments: [NIOHTTPServer.HTTPVersion.plaintextHTTP1_1, .http1_1, .http2]
     )
     #endif

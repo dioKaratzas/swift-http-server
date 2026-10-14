@@ -31,13 +31,13 @@ extension HTTPServerCapability {
         var localAddress: NIOHTTPServer.SocketAddress? { get }
     }
 
-    /// A request-context capability exposing the negotiated application protocol.
+    /// A request-context capability exposing the application-level HTTP version.
     ///
     /// Servers whose request context conforms to this capability surface the
-    /// application-level HTTP version negotiated for the connection carrying
-    /// the request.
-    public protocol NegotiatedHTTPVersion: RequestContext {
-        /// The application-level HTTP version negotiated for the connection.
+    /// HTTP version in use on the connection carrying the request, whether it
+    /// was negotiated via ALPN or fixed by a plaintext listener.
+    public protocol HTTPVersion: RequestContext {
+        /// The application-level HTTP version in use on the connection.
         var httpVersion: NIOHTTPServer.HTTPVersion { get }
     }
 
